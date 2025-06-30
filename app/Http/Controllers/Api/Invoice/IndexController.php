@@ -17,10 +17,10 @@ class IndexController extends Controller
                 ->with(['user'])
                 ->where('user_id', '=', $request->user()?->id)
                 ->paginate(25)
-        );
+        ); // Récupérer du json de tous les factures de l'utilisateur connecté mais paginer de 25 factures
 
         $invoiceCollectionResponse = new InvoiceCollectionResponse($invoiceCollection, 200);
 
-        return $invoiceCollectionResponse;
+        return $invoiceCollectionResponse; // Retourner une réponse du json des factures avec un statut 200
     }
 }
